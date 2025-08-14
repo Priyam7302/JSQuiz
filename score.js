@@ -18,7 +18,7 @@ const quiz = [
   },
   {
     question: "What is the capital of Russia?",
-    imgUrl: "dice_2.png",
+    imgUrl: "saint-basil-s-cathedral-red-square-moscow-russia.jpg",
     answer: "Moscow",
     options: ["Moscow", "St. Petersberg", "Paris", "Dublin"],
   },
@@ -78,7 +78,8 @@ function fn() {
     const question = document.querySelector(".qn-para");
     question.innerText = quiz[quesNum].question;
 
-    const imgQn = document.querySelector("img");
+    const imgQn = document.querySelector("#imgQn");
+
     imgQn.src = "";
     if (
       quiz[quesNum].imgUrl &&
@@ -87,6 +88,10 @@ function fn() {
         quiz[quesNum].imgUrl.toLowerCase().endsWith(".gif"))
     ) {
       imgQn.src = quiz[quesNum].imgUrl;
+      imgQn.classList.remove("hidden-img");
+    } else {
+      imgQn.src = ""; 
+      imgQn.classList.add("hidden-img");
     }
 
     const optionDiv = document.querySelector("div");
